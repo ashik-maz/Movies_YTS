@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/pages/About.dart';
 import 'package:movies/pages/ShowMovie.dart';
 
 class home extends StatefulWidget {
@@ -24,9 +25,18 @@ class _homeState extends State<home> {
           ),
           centerTitle: true,
           actions: [
+            Icon(Icons.menu),
             Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(Icons.menu),
+              padding: EdgeInsets.all(4.0),
+              child: IconButton(
+                icon: Icon(Icons.more_vert),
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return AboutDeveloper();
+                  }));
+                },
+              ),
             )
           ],
         ),
@@ -71,9 +81,8 @@ class BottomNavigation extends StatelessWidget {
         ),
       ],
       selectedItemColor: Colors.white,
-  unselectedItemColor: Colors.white.withOpacity(0.5),
-  showUnselectedLabels: true,
-  //labelStyle: TextStyle(color: Colors.white),
+      unselectedItemColor: Colors.white.withOpacity(0.5),
+      showUnselectedLabels: true,
     );
   }
 }
